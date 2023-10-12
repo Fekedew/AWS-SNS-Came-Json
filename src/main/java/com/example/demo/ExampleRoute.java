@@ -10,7 +10,7 @@ import javax.xml.bind.JAXBException;
 
 
 @Component
-public class Main extends RouteBuilder {
+public class ExampleRoute extends RouteBuilder {
 
     public static JaxbDataFormat jaxbFormat(Class<?> clazz) {
         try {
