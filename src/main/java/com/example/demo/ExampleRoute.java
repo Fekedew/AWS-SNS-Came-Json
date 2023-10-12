@@ -1,8 +1,10 @@
 package com.example.demo;
 
+import com.example.demo.json.Response;
 import com.iszo.example.demo.ObjectFactory;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.converter.jaxb.JaxbDataFormat;
+import org.apache.camel.model.dataformat.JsonLibrary;
 import org.springframework.stereotype.Component;
 
 import javax.xml.bind.JAXBContext;
@@ -24,7 +26,7 @@ public class ExampleRoute extends RouteBuilder {
     public void configure() throws Exception {
         from("file:/Users/iszo/Desktop/ttttttt/From")
             .routeId("bookstore")
-            .unmarshal(jaxbFormat(ObjectFactory.class))
+            .unmarshal().json(JsonLibrary.Jackson, Response.class)
             .transform(method(JsonToXmlTransformation.class))
             .marshal(jaxbFormat(ObjectFactory.class))
             .to("file:/Users/iszo/Desktop/ttttttt/To?fileName=book.xml");
