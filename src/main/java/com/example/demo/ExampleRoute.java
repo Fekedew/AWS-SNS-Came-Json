@@ -24,11 +24,19 @@ public class ExampleRoute extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
-        from("file:/Users/iszo/Desktop/ttttttt/From")
+//
+//        from("direct:activeMq")
+//                .log("we receive from the endpoint fekedew: ${body}")
+//                .to("file:/Users/iszo/Desktop/ttttttt/To?fileName=data.json")
+//                .log("the file is saved");
+
+        from("direct:transfromToXml")
             .routeId("bookstore")
+            .log("Body: ${body}")
             .unmarshal().json(JsonLibrary.Jackson, Response.class)
             .transform(method(JsonToXmlTransformation.class))
             .marshal(jaxbFormat(ObjectFactory.class))
+            .log("Body: ${body}")
             .to("file:/Users/iszo/Desktop/ttttttt/To?fileName=book.xml");
     }
 }
