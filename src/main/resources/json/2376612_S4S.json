@@ -1,0 +1,50 @@
+{
+    "specversion": "1.0",
+    "type": "jumbo.S4.test.PurchaseOrder.v1.Data",
+    "source": "jumbo/S4/test",
+    "subject": "PurchaseOrder - 1003",
+    "id": "2376612",
+    "time": "2023-10-06T12:30:17Z",
+    "datacontenttype": "application/json",
+    "data": {
+        "purchaseOrder": {
+            "header": {
+                "actionCode": "Order Item(s) changed",
+                "orderType": "NB",
+                "orderNumber": "4500037372",
+                "latestDeliveryMoment": "2023-10-08T16:00:00Z",
+                "earliestDeliveryMoment": "2023-10-08T14:00:00Z",
+                "purchasingGroup": "WNK",
+                "receivingLocation": "1003",
+                "soldToParty": "2001",
+                "supplierNumber": "DC23",
+                "goodsRecipient": "1003",
+                "documentDate": "2023-10-06T12:30:17Z",
+                "idocCreationDate": "2023-10-06T12:30:17Z",
+                "deliveryDate": "2023-10-08T12:22:01Z"
+            },
+            "line": [
+                {
+                    "lineNumber": "10",
+                    "actionCode": "Item Changed",
+                    "quantity": 50.000,
+                    "unit": "STK",
+                    "numberOfPallets": "1PAL",
+                    "deliveryQuantity": "0.069",
+                    "deliveryUnit": "PAL",
+                    "scheduleLine": [
+                        {
+                            "lineCounter": "0001",
+                            "quantity": "50.000"
+                        }
+                    ],
+                    "identification": {
+                        "articleNumber": "11802",
+                        "supplierArticleNumber": "99887654",
+                        "ean": "4001724002352"
+                    }
+                }
+            ]
+        }
+    }
+}

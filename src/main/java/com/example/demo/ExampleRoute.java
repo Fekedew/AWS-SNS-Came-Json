@@ -1,6 +1,6 @@
 package com.example.demo;
 
-import com.example.demo.json.Response;
+import com.example.demo.purchase.PurcahseResponse;
 import com.iszo.example.demo.ObjectFactory;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.converter.jaxb.JaxbDataFormat;
@@ -30,10 +30,10 @@ public class ExampleRoute extends RouteBuilder {
 //                .to("file:/Users/iszo/Desktop/ttttttt/To?fileName=data.json")
 //                .log("the file is saved");
 
-        from("direct:transfromToXml")
+            from("file:/Users/iszo/Desktop/ttttttt/From")
             .routeId("bookstore")
             .log("Body: ${body}")
-            .unmarshal().json(JsonLibrary.Jackson, Response.class)
+            .unmarshal().json(JsonLibrary.Jackson, PurcahseResponse.class)
             .transform(method(JsonToXmlTransformation.class))
             .marshal(jaxbFormat(ObjectFactory.class))
             .log("Body: ${body}")
